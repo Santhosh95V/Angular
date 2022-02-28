@@ -1,0 +1,40 @@
+
+<h1>My Todo's</h1>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+<table class="table">
+    
+    <caption>My Todo's </caption>
+
+
+    <thead>
+        <tr>
+            <th>Select</th>
+            <th>id</th>
+            <th>Description</th>
+            <th>Target Date</th>
+            <th>is Completed</th>
+            <th>Delete</th>
+            <th>Update</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todos">
+            <input type="checkbox" border="10">
+            <td>{{todo.id}}</td>
+            <td>{{todo.description}}</td>
+            <td>{{todo.targetDate| date | uppercase}}</td>
+            <td>{{todo.done}}</td>
+            <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+            
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <button (click)="addTodo()" class="btn btn-success">Add</button>
+</div>
+
+</div>
